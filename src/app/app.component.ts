@@ -12,10 +12,14 @@ import { Tab1Page } from "../pages/tab1/tab1";
 import { Tab2Page } from "../pages/tab2/tab2";
 import { TabsPage } from "../pages/tabs/tabs";
 
-export interface MenuItem {
-    title: string;
-    component: any;
-    icon: string;
+export interface PageInterface {
+  title: string;
+  name: string;
+  component: any;
+  icon: string;
+  index?: number;
+  tabName?: string;
+  tabComponent?: any;
 }
 
 @Component({
@@ -27,7 +31,7 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  appMenuItems: Array<MenuItem>;
+  appMenuItems: Array<PageInterface>;
 
   constructor(
     public platform: Platform,
@@ -38,8 +42,8 @@ export class MyApp {
     this.initializeApp();
 
     this.appMenuItems = [
-      {title: 'Home', component: HomePage, icon: 'home'},
-      {title: 'Local Weather', component: LocalWeatherPage, icon: 'partly-sunny'},
+      {title: 'Home', name: 'HomePage',  component: HomePage, icon: 'home'},
+      {title: 'Local Weather', name: 'LocalWeatherPage', component: LocalWeatherPage, icon: 'partly-sunny'},
       { title: 'Tab 1', name: 'TabsPage', component: TabsPage, tabComponent: Tab1Page, index: 0, icon: 'home' },
       { title: 'Tab 2', name: 'TabsPage', component: TabsPage, tabComponent: Tab2Page, index: 1, icon: 'contacts' },
     ];

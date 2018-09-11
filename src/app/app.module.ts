@@ -27,6 +27,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import { TabsPage } from "../pages/tabs/tabs";
 import { Tab1Page } from "../pages/tab1/tab1";
 import { Tab2Page } from "../pages/tab2/tab2";
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 // import services
 // end import services
@@ -55,6 +56,7 @@ import { Tab2Page } from "../pages/tab2/tab2";
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxDatatableModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,

@@ -6,7 +6,21 @@
     <ion-title>Tab1</ion-title>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content padding>
-  Tab 1
+  Tab 1<br>
+
+  <h3>Demo table</h3>
+  <div>
+    <ngx-datatable
+         [sortType]="'multi'"
+         [headerHeight]="50"
+         [footerHeight]="50"
+         [rowHeight]="50"
+         [rows]="rows"
+         [columns]="columns"
+         [columnMode]="'force'"
+         [limit]="10">
+       </ngx-datatable>
+  </div>
 </ion-content>
