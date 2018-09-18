@@ -1,0 +1,103 @@
+{
+   "products" : [
+      {
+         "name" : "New Nintendo 3ds",
+         "sku" : "New Nintendo 3ds White/Black",
+         "created" : "19-8-2018",
+         "retail_price": "175",
+         "sale_price": "200",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "New Nintendo 3ds xl",
+         "sku" : "New Nintendo 3ds xl Red",
+         "created" : "18-8-2018",
+         "retail_price": "285",
+         "sale_price": "300",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Nintendo 3ds",
+         "sku" : "Nintendo 3ds Black/Red",
+         "created" : "10-8-2016",
+         "retail_price": "200",
+         "sale_price": "220",
+         "visible": false,
+         "active": false
+      },
+      {
+         "name" : "Nintendo 2ds",
+         "sku" : "Nintendo 2ds Red/Blue",
+         "created" : "19-8-2017",
+         "retail_price": "75",
+         "sale_price": "100",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "New Nintendo 2ds xl",
+         "sku" : "New Nintendo 3ds White/Black",
+         "created" : "19-8-2018",
+         "retail_price": "195",
+         "sale_price": "250",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "MI 32in Smart TV",
+         "sku" : "MI 32in Smart TV",
+         "created" : "23-5-2018",
+         "retail_price": "185",
+         "sale_price": "205",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Macbook adapter",
+         "sku" : "Macbook adapter white",
+         "created" : "19-1-2017",
+         "retail_price": "95",
+         "sale_price": "100",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Lego Batman",
+         "sku" : "Lego Batman laugh/Cry",
+         "created" : "19-8-2016",
+         "retail_price": "5",
+         "sale_price": "10",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Mickey Mouse Toy",
+         "sku" : "Micky mouse Default/Red",
+         "created" : "9-10-2018",
+         "retail_price": "15",
+         "sale_price": "20",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Link Toy",
+         "sku" : "Link Toon/3d",
+         "created" : "1-2-2016",
+         "retail_price": "40",
+         "sale_price": "50",
+         "visible": true,
+         "active": true
+      },
+      {
+         "name" : "Mario Amibo",
+         "sku" : "Mario Fire/Punch",
+         "created" : "6-3-2018",
+         "retail_price": "70",
+         "sale_price": "100",
+         "visible": true,
+         "active": true
+      }
+   ]
+}

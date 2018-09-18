@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Products</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Products<br> -->
+
+  <h3>Products table</h3>
+  <div>
+    <ngx-datatable
+     [headerHeight]="50"
+     [footerHeight]="50"
+     [rowHeight]="50"
+     [rows]="rows"
+     [columnMode]="'force'"
+     [scrollbarH]="true"
+     [limit]="10">
+             <ngx-datatable-column *ngFor="let col of columns" name="col.name" [width]="col.width"
+             [resizeable]="true">
+                <ng-template let-column="column" ngx-datatable-header-template >
+                  {{col.name}}
+                </ng-template>
+
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+                  <div>
+                    {{row[col.key]}}
+                  </div>
+                </ng-template>
+             </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</ion-content>

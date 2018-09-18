@@ -29,6 +29,8 @@ import { Tab1Page } from "../pages/tab1/tab1";
 import { Tab2Page } from "../pages/tab2/tab2";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { ProductsPageComponent } from '../pages';
+
 // import services
 // end import services
 // end import services
@@ -51,7 +53,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     TripsPage,
     TabsPage,
     Tab1Page,
-    Tab2Page
+    Tab2Page,
+    ProductsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     TripsPage,
     TabsPage,
     Tab1Page,
-    Tab2Page
+    Tab2Page,
+    ProductsPageComponent
   ],
   providers: [
     StatusBar,

@@ -12,6 +12,8 @@ import { Tab1Page } from "../pages/tab1/tab1";
 import { Tab2Page } from "../pages/tab2/tab2";
 import { TabsPage } from "../pages/tabs/tabs";
 
+import { ProductsPageComponent } from '../pages';
+
 export interface PageInterface {
   title: string;
   name: string;
@@ -46,6 +48,7 @@ export class MyApp {
       {title: 'Local Weather', name: 'LocalWeatherPage', component: LocalWeatherPage, icon: 'partly-sunny'},
       { title: 'Tab 1', name: 'TabsPage', component: TabsPage, tabComponent: Tab1Page, index: 0, icon: 'home' },
       { title: 'Tab 2', name: 'TabsPage', component: TabsPage, tabComponent: Tab2Page, index: 1, icon: 'contacts' },
+      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 2, icon: 'ios-american-football' },
     ];
   }
 
