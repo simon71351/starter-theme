@@ -35,13 +35,13 @@ export class ProductsPageComponent {
       //   { name: 'Active' }
       // ]
       this.columns = [
-        { name: 'Name', key: 'name', width: '250' },
-        { name: 'SKU', key: 'sku', width: '250' },
-        { name: 'Created', key: 'created', width: '100' },
-        { name: 'Retail Price (USD)', key: 'retail_price', width: '150' },
-        { name: 'Sale Price (USD)', key: 'sale_price', width: '150' },
-        { name: 'Visible', key: 'visible', width: '100' },
-        { name: 'Active', key: 'active', width: '100' }
+        { name: 'Name', key: 'name', width: '250', cellClass: 'align-left' },
+        { name: 'SKU', key: 'sku', width: '250', cellClass: 'align-left' },
+        { name: 'Created', key: 'created', width: '100', cellClass: 'align-left' },
+        { name: 'Retail Price (USD)', key: 'retail_price', width: '150', cellClass: 'align-right' },
+        { name: 'Sale Price (USD)', key: 'sale_price', width: '150', cellClass: 'align-right' },
+        { name: 'Visible', key: 'visible', width: '100', cellClass: 'align-left' },
+        { name: 'Active', key: 'active', width: '100', cellClass: 'align-left' }
       ]
     }
 

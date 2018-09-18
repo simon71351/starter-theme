@@ -20,7 +20,7 @@
      [columnMode]="'force'"
      [scrollbarH]="true"
      [limit]="10">
-             <ngx-datatable-column *ngFor="let col of columns" name="col.name" [width]="col.width"
+             <ngx-datatable-column *ngFor="let col of columns" name="col.name" [width]="col.width" [cellClass]="col.cellClass"
              [resizeable]="true">
                 <ng-template let-column="column" ngx-datatable-header-template >
                   {{col.name}}
