@@ -34,13 +34,13 @@ export class ProductCRUDPageComponent {
 
     public saveProduct() {
       console.log(this.product);
-      this.navCtrl.push(ProductsPageComponent);
+      this.navCtrl.pop(ProductsPageComponent);
     }
 
     public deleteProduct() {
     }
 
     public cancel() {
-      this.navCtrl.push(ProductsPageComponent);
+      this.navCtrl.pop(ProductsPageComponent);
     }
 }
