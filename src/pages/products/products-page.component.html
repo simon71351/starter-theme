@@ -10,9 +10,9 @@
 <ion-content padding>
   <!-- Products<br> -->
 
-  <h3>Products table</h3>
+  <!-- <h3>Products table</h3> -->
   <div>
-    <ngx-datatable
+    <!-- <ngx-datatable
      [headerHeight]="50"
      [footerHeight]="50"
      [rowHeight]="50"
@@ -32,6 +32,17 @@
                   </div>
                 </ng-template>
              </ngx-datatable-column>
-    </ngx-datatable>
+    </ngx-datatable> -->
+
+    <ion-list *ngFor="let product of products">
+      <ion-item (click)='openProduct(product)'>
+        <ion-avatar item-left>
+          <img *ngIf="product.main_pair" [src]="product.main_pair.detailed.image_path">
+        </ion-avatar>
+        <h2>{{product.product}}</h2>
+        <p>{{product.product_code}}, {{product.price}}</p>
+      </ion-item>
+    </ion-list>
+
   </div>
 </ion-content>

@@ -1,103 +1,271 @@
 {
-   "products" : [
-      {
-         "name" : "New Nintendo 3ds",
-         "sku" : "New Nintendo 3ds White/Black",
-         "created" : "19-8-2018",
-         "retail_price": "175",
-         "sale_price": "200",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "New Nintendo 3ds xl",
-         "sku" : "New Nintendo 3ds xl Red",
-         "created" : "18-8-2018",
-         "retail_price": "285",
-         "sale_price": "300",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Nintendo 3ds",
-         "sku" : "Nintendo 3ds Black/Red",
-         "created" : "10-8-2016",
-         "retail_price": "200",
-         "sale_price": "220",
-         "visible": false,
-         "active": false
-      },
-      {
-         "name" : "Nintendo 2ds",
-         "sku" : "Nintendo 2ds Red/Blue",
-         "created" : "19-8-2017",
-         "retail_price": "75",
-         "sale_price": "100",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "New Nintendo 2ds xl",
-         "sku" : "New Nintendo 3ds White/Black",
-         "created" : "19-8-2018",
-         "retail_price": "195",
-         "sale_price": "250",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "MI 32in Smart TV",
-         "sku" : "MI 32in Smart TV",
-         "created" : "23-5-2018",
-         "retail_price": "185",
-         "sale_price": "205",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Macbook adapter",
-         "sku" : "Macbook adapter white",
-         "created" : "19-1-2017",
-         "retail_price": "95",
-         "sale_price": "100",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Lego Batman",
-         "sku" : "Lego Batman laugh/Cry",
-         "created" : "19-8-2016",
-         "retail_price": "5",
-         "sale_price": "10",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Mickey Mouse Toy",
-         "sku" : "Micky mouse Default/Red",
-         "created" : "9-10-2018",
-         "retail_price": "15",
-         "sale_price": "20",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Link Toy",
-         "sku" : "Link Toon/3d",
-         "created" : "1-2-2016",
-         "retail_price": "40",
-         "sale_price": "50",
-         "visible": true,
-         "active": true
-      },
-      {
-         "name" : "Mario Amibo",
-         "sku" : "Mario Fire/Punch",
-         "created" : "6-3-2018",
-         "retail_price": "70",
-         "sale_price": "100",
-         "visible": true,
-         "active": true
-      }
-   ]
+	"products": [
+        {
+            "product_id": "5765",
+            "product": "2011 Tycoon",
+            "product_code": "S0231YYSMK",
+            "product_type": "P",
+            "status": "A",
+            "company_id": "9",
+            "approved": "Y",
+            "list_price": "11000.00",
+            "amount": "8",
+            "weight": "0.000",
+            "length": "0",
+            "width": "0",
+            "height": "0",
+            "shipping_freight": "0.00",
+            "low_avail_limit": "0",
+            "timestamp": "1515531600",
+            "updated_timestamp": "1521626608",
+            "usergroup_ids": "0",
+            "is_edp": "N",
+            "edp_shipping": "N",
+            "unlimited_download": "N",
+            "tracking": "O",
+            "free_shipping": "N",
+            "zero_price_action": "R",
+            "is_pbp": "Y",
+            "is_op": "N",
+            "is_oper": "N",
+            "is_returnable": "Y",
+            "return_period": "10",
+            "avail_since": "1515531600",
+            "out_of_stock_actions": "N",
+            "localization": "",
+            "min_qty": "3",
+            "max_qty": "0",
+            "qty_step": "3",
+            "list_qty_count": "4",
+            "tax_ids": "6",
+            "age_verification": "N",
+            "age_limit": "0",
+            "options_type": "P",
+            "exceptions_type": "A",
+            "details_layout": "default",
+            "shipping_params": "a:5:{s:16:\"min_items_in_box\";i:0;s:16:\"max_items_in_box\";i:0;s:10:\"box_length\";i:0;s:9:\"box_width\";i:0;s:10:\"box_height\";i:0;}",
+            "facebook_obj_type": "activity",
+            "buy_now_url": "",
+            "price": "10500.000000",
+            "category_ids": [
+                309
+            ],
+            "average_rating": "5.0000",
+            "discussion_type": "B",
+            "discussion_thread_id": "3776",
+            "main_category": 309,
+            "main_pair": {
+                "pair_id": "6272",
+                "image_id": "0",
+                "detailed_id": "8254",
+                "position": "0",
+                "detailed": {
+                    "object_id": "5765",
+                    "object_type": "product",
+                    "image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872334f33af2276de4.jpg",
+                    "alt": "",
+                    "image_x": "1095",
+                    "image_y": "1095",
+                    "http_image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872334f33af2276de4.jpg",
+                    "https_image_path": "https://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872334f33af2276de4.jpg",
+                    "absolute_path": "/var/www/html/images/detailed/8/url_uploaded_file_13287872334f33af2276de4.jpg",
+                    "relative_path": "detailed/8/url_uploaded_file_13287872334f33af2276de4.jpg"
+                }
+            },
+            "image_pairs": {
+                "6273": {
+                    "pair_id": "6273",
+                    "image_id": "0",
+                    "detailed_id": "8255",
+                    "position": "0",
+                    "detailed": {
+                        "object_id": "5765",
+                        "object_type": "product",
+                        "image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c.jpg",
+                        "alt": "",
+                        "image_x": "1095",
+                        "image_y": "1095",
+                        "http_image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c.jpg",
+                        "https_image_path": "https://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c.jpg",
+                        "absolute_path": "/var/www/html/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c.jpg",
+                        "relative_path": "detailed/8/url_uploaded_file_13287872754f33af4c7159c.jpg"
+                    }
+                },
+                "6274": {
+                    "pair_id": "6274",
+                    "image_id": "0",
+                    "detailed_id": "8256",
+                    "position": "0",
+                    "detailed": {
+                        "object_id": "5765",
+                        "object_type": "product",
+                        "image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c_zjt7-09.jpg",
+                        "alt": "",
+                        "image_x": "1095",
+                        "image_y": "1095",
+                        "http_image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c_zjt7-09.jpg",
+                        "https_image_path": "https://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c_zjt7-09.jpg",
+                        "absolute_path": "/var/www/html/images/detailed/8/url_uploaded_file_13287872754f33af4c7159c_zjt7-09.jpg",
+                        "relative_path": "detailed/8/url_uploaded_file_13287872754f33af4c7159c_zjt7-09.jpg"
+                    }
+                },
+                "6275": {
+                    "pair_id": "6275",
+                    "image_id": "0",
+                    "detailed_id": "8257",
+                    "position": "0",
+                    "detailed": {
+                        "object_id": "5765",
+                        "object_type": "product",
+                        "image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4d0657a.jpg",
+                        "alt": "",
+                        "image_x": "854",
+                        "image_y": "518",
+                        "http_image_path": "http://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4d0657a.jpg",
+                        "https_image_path": "https://www.yesss.com.mm/images/detailed/8/url_uploaded_file_13287872754f33af4d0657a.jpg",
+                        "absolute_path": "/var/www/html/images/detailed/8/url_uploaded_file_13287872754f33af4d0657a.jpg",
+                        "relative_path": "detailed/8/url_uploaded_file_13287872754f33af4d0657a.jpg"
+                    }
+                }
+            },
+            "base_price": "10500.000000",
+            "selected_options": [],
+            "has_options": true,
+            "product_options": [],
+            "list_discount": 500,
+            "list_discount_prc": "5",
+            "discounts": {
+                "A": 0,
+                "P": 0
+            },
+            "product_features": {
+                "18": {
+                    "feature_id": "18",
+                    "value": "",
+                    "value_int": null,
+                    "variant_id": "14044",
+                    "feature_type": "E",
+                    "description": "Brand",
+                    "prefix": "",
+                    "suffix": "",
+                    "variant": "Adidas",
+                    "parent_id": "0",
+                    "features_hash": "26-14044",
+                    "variants": {
+                        "14044": {
+                            "value": "",
+                            "value_int": null,
+                            "variant_id": "14044",
+                            "variant": "Adidas",
+                            "image_pairs": {
+                                "pair_id": "6300",
+                                "image_id": "8282",
+                                "detailed_id": "0",
+                                "position": "0",
+                                "icon": {
+                                    "image_path": "http://www.yesss.com.mm/images/feature_variant/8/Adidas_Logo.svg.png",
+                                    "alt": "",
+                                    "image_x": "200",
+                                    "image_y": "133",
+                                    "http_image_path": "http://www.yesss.com.mm/images/feature_variant/8/Adidas_Logo.svg.png",
+                                    "https_image_path": "https://www.yesss.com.mm/images/feature_variant/8/Adidas_Logo.svg.png",
+                                    "absolute_path": "/var/www/html/images/feature_variant/8/Adidas_Logo.svg.png",
+                                    "relative_path": "feature_variant/8/Adidas_Logo.svg.png"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "qty_content": [
+                "3",
+                6
+            ]
+        },
+        {
+            "product_id": "3765",
+            "product": "3M 1100C ear plug",
+            "product_code": "1100C",
+            "product_type": "P",
+            "status": "A",
+            "company_id": "6",
+            "approved": "Y",
+            "list_price": "32.00",
+            "amount": "0",
+            "weight": "0.000",
+            "length": "0",
+            "width": "0",
+            "height": "0",
+            "shipping_freight": "0.00",
+            "low_avail_limit": "0",
+            "timestamp": "1515531600",
+            "updated_timestamp": "1516980804",
+            "usergroup_ids": "0",
+            "is_edp": "",
+            "edp_shipping": "",
+            "unlimited_download": "N",
+            "tracking": "O",
+            "free_shipping": "N",
+            "zero_price_action": "R",
+            "is_pbp": "N",
+            "is_op": "N",
+            "is_oper": "N",
+            "is_returnable": "Y",
+            "return_period": "10",
+            "avail_since": "1517346000",
+            "out_of_stock_actions": "S",
+            "localization": "",
+            "min_qty": "0",
+            "max_qty": "0",
+            "qty_step": "0",
+            "list_qty_count": "0",
+            "tax_ids": "",
+            "age_verification": "N",
+            "age_limit": "0",
+            "options_type": "P",
+            "exceptions_type": "A",
+            "details_layout": "default",
+            "shipping_params": "a:5:{s:16:\"min_items_in_box\";i:0;s:16:\"max_items_in_box\";i:0;s:10:\"box_length\";i:0;s:9:\"box_width\";i:0;s:10:\"box_height\";i:0;}",
+            "facebook_obj_type": "activity",
+            "buy_now_url": "",
+            "price": "2.000000",
+            "category_ids": [
+                282
+            ],
+            "average_rating": "5.0000",
+            "discussion_type": "B",
+            "discussion_thread_id": "1766",
+            "main_category": 282,
+            "main_pair": {
+                "pair_id": "2699",
+                "image_id": "0",
+                "detailed_id": "4681",
+                "position": "0",
+                "detailed": {
+                    "object_id": "3765",
+                    "object_type": "product",
+                    "image_path": "http://www.yesss.com.mm/images/detailed/4/4775091-8056.jpg",
+                    "alt": "",
+                    "image_x": "334",
+                    "image_y": "493",
+                    "http_image_path": "http://www.yesss.com.mm/images/detailed/4/4775091-8056.jpg",
+                    "https_image_path": "https://www.yesss.com.mm/images/detailed/4/4775091-8056.jpg",
+                    "absolute_path": "/var/www/html/images/detailed/4/4775091-8056.jpg",
+                    "relative_path": "detailed/4/4775091-8056.jpg"
+                }
+            },
+            "base_price": "2.000000",
+            "selected_options": [],
+            "has_options": true,
+            "product_options": [],
+            "list_discount": 30,
+            "list_discount_prc": "94",
+            "discounts": {
+                "A": 0,
+                "P": 0
+            },
+            "product_features": [],
+            "qty_content": []
+        }
+    ]
 }

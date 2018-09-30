@@ -20,9 +20,9 @@ export class ProductsPageComponent {
 
     public config: Config;
     public columns: any;
-    public rows: any;
+    public products: any;
 
-    constructor(public navCtrl: NavController, private _HTTP: HttpClient) {
+    constructor(public navCtrl: NavController, private http: HttpClient) {
       // Define the columns for the data table
       // (based off the names of the keys in the JSON file)
       // this.columns = [
@@ -46,10 +46,18 @@ export class ProductsPageComponent {
     }
 
     ionViewDidLoad(): void {
-      this._HTTP.get<Config>('../../assets/data/products.json')
+      this.fetchProducts();
+    }
+
+    public fetchProducts() {
+      this.http.get<Config>('../../assets/data/products.json')
       .subscribe((data) => {
-        this.rows = data.products;
+        this.products = data.products;
+        console.log(this.products);
       })
     }
 
+    public openProduct(product) {
+      console.log(product);
+    }
 }
