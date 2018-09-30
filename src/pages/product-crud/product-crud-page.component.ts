@@ -27,4 +27,12 @@ export class ProductCRUDPageComponent {
 
     ionViewDidLoad(): void {
     }
+
+    public saveProduct() {
+      console.log(this.product);
+    }
+
+    public deleteProduct() {
+
+    }
 }

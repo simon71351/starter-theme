@@ -13,24 +13,24 @@
       <ion-item>
         <ion-label floating>Product Name</ion-label>
         <ion-input
-            type="text" [value]="product.product"></ion-input>
+            type="text" [(ngModel)]="product.product"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Product Code</ion-label>
         <ion-input
-            type="text" [value]="product.product_code"></ion-input>
+            type="text" [(ngModel)]="product.product_code"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Price</ion-label>
         <ion-input
-            type="text" [value]="product.price"></ion-input>
+            type="text" [(ngModel)]="product.price"></ion-input>
       </ion-item>
 
       <div style="padding-left: 16px; padding-top: 16px;">
-        <button ion-button>Save</button>
-        <button ion-button color="danger">Delete</button>
+        <button ion-button (click)="saveProduct()">Save</button>
+        <button ion-button color="danger" (delete)="deleteProduct()">Delete</button>
       </div>
     <!-- </form> -->
   </div>
