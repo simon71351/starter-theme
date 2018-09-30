@@ -35,7 +35,7 @@
     </ngx-datatable> -->
 
     <ion-list *ngFor="let product of products">
-      <ion-item (click)='openProduct(product)'>
+      <ion-item (click)="openProduct(product)" style="border-bottom: 1px solid #d8d8d8;">
         <ion-avatar item-left>
           <img *ngIf="product.main_pair" [src]="product.main_pair.detailed.image_path">
         </ion-avatar>
