@@ -8,8 +8,12 @@
 </ion-header>
 
 <ion-content padding>
-  <div style="margin-top: -16px;">
+  <div>
     <!-- <form> -->
+      <div style="padding-left: 16px; text-align: center">
+        <img *ngIf="product.main_pair" [src]="product.main_pair.detailed.image_path" width="120px">
+      </div>
+
       <ion-item>
         <ion-label floating>Product Name</ion-label>
         <ion-input
@@ -30,6 +34,7 @@
 
       <div style="padding-left: 16px; padding-top: 16px;">
         <button ion-button (click)="saveProduct()">Save</button>
+        <button ion-button (click)="cancel()">Cancel</button>
         <button ion-button color="danger" (delete)="deleteProduct()">Delete</button>
       </div>
     <!-- </form> -->

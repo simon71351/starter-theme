@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
+import { ProductsPageComponent } from '../index';
+
 /**
  * Generated class for the Tab1Page page.
  *
@@ -20,7 +22,9 @@ export class ProductCRUDPageComponent {
 
     public config: Config;
     public product;
-    constructor(public navCtrl: NavController, private http: HttpClient, public navParams: NavParams) {
+    constructor(public navCtrl: NavController,
+      private http: HttpClient,
+      public navParams: NavParams) {
       this.product = this.navParams.get('product');
       console.log(this.product);
     }
@@ -30,9 +34,13 @@ export class ProductCRUDPageComponent {
 
     public saveProduct() {
       console.log(this.product);
+      this.navCtrl.push(ProductsPageComponent);
     }
 
     public deleteProduct() {
+    }
 
+    public cancel() {
+      this.navCtrl.push(ProductsPageComponent);
     }
 }
