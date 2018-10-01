@@ -31,6 +31,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ProductsPageComponent, ProductCRUDPageComponent } from '../pages';
 
+import { SuperTabsModule } from 'ionic2-super-tabs';
+
 // import services
 // end import services
 // end import services
@@ -61,6 +63,7 @@ import { ProductsPageComponent, ProductCRUDPageComponent } from '../pages';
     BrowserModule,
     HttpClientModule,
     NgxDatatableModule,
+    SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,

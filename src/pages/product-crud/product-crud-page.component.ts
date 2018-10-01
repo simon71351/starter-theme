@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
-import { ProductsPageComponent } from '../index';
+// import { ProductsPageComponent } from '../index';
+
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 /**
  * Generated class for the Tab1Page page.
@@ -34,13 +36,13 @@ export class ProductCRUDPageComponent {
 
     public saveProduct() {
       console.log(this.product);
-      this.navCtrl.pop(ProductsPageComponent);
+      this.navCtrl.pop();
     }
 
     public deleteProduct() {
     }
 
     public cancel() {
-      this.navCtrl.pop(ProductsPageComponent);
+      this.navCtrl.pop();
     }
 }

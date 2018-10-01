@@ -11,16 +11,16 @@ import { ProductCRUDPageComponent } from '../index';
  * on Ionic pages and navigation.
  */
 
-export interface Config {
-  products: string;
-}
+// export interface Config {
+//   products: string;
+// }
 
 @Component({
   templateUrl: './products-page.component.html'
 })
 export class ProductsPageComponent {
 
-    public config: Config;
+    // public config: Config;
     public columns: any;
     public products: any;
     constructor(public navCtrl: NavController, private http: HttpClient) {
@@ -31,9 +31,9 @@ export class ProductsPageComponent {
     }
 
     public fetchProducts() {
-      this.http.get<Config>('../../assets/data/products.json')
+      this.http.get('../../assets/data/products.json')
       .subscribe((data) => {
-        this.products = data.products;
+        this.products = data['products'];
       })
     }
 
