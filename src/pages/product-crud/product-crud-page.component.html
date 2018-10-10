@@ -4,39 +4,56 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Product Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable color="primary" (click)="saveProduct()">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+      <button ion-button tappable color="danger" (click)="deleteProduct()">
+        <ion-icon name="md-trash"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div>
-    <!-- <form> -->
-      <div style="padding-left: 16px; text-align: center">
-        <img *ngIf="product.main_pair" [src]="product.main_pair.detailed.image_path" width="120px">
-      </div>
+     <ion-slides pager="true">
+        <ion-slide>
+          <!-- <form> -->
+            <div style="padding-left: 16px; text-align: center">
+              <img *ngIf="product.main_pair" [src]="product.main_pair.detailed.image_path" class="product_img">
+            </div>
 
-      <ion-item>
-        <ion-label floating>Product Name</ion-label>
-        <ion-input
-            type="text" [(ngModel)]="product.product"></ion-input>
-      </ion-item>
+            <ion-item>
+              <ion-label floating>Product Name</ion-label>
+              <ion-input
+                  type="text" [(ngModel)]="product.product"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating>Product Code</ion-label>
-        <ion-input
-            type="text" [(ngModel)]="product.product_code"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Price</ion-label>
-        <ion-input
-            type="text" [(ngModel)]="product.price"></ion-input>
-      </ion-item>
-
-      <div style="padding-left: 16px; padding-top: 16px;">
-        <button ion-button (click)="saveProduct()">Save</button>
-        <button ion-button (click)="cancel()">Cancel</button>
-        <button ion-button color="danger" (delete)="deleteProduct()">Delete</button>
-      </div>
-    <!-- </form> -->
+            <ion-item>
+              <ion-label floating>Product Code</ion-label>
+              <ion-input
+                  type="text" [(ngModel)]="product.product_code"></ion-input>
+            </ion-item>
+          <!-- </form> -->
+        </ion-slide>
+        <ion-slide>
+          <ion-item>
+            <ion-label floating>Price</ion-label>
+            <ion-input
+                type="text" [(ngModel)]="product.price"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Base Price</ion-label>
+            <ion-input
+                type="text" [(ngModel)]="product.base_price"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>List Price</ion-label>
+            <ion-input
+                type="text" [(ngModel)]="product.list_price"></ion-input>
+          </ion-item>
+        </ion-slide>
+    </ion-slides>
   </div>
 </ion-content>
