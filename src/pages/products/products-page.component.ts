@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { ProductCRUDPageComponent } from '../index';
 
@@ -31,9 +31,15 @@ export class ProductsPageComponent {
     }
 
     public fetchProducts() {
-      this.http.get('../../assets/data/products.json')
-      .subscribe((data) => {
-        this.products = data['products'];
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'Basic ' + 'aGFud2luc3RlckBnbWFpbC5jb206M2VnWTRoUzcwODlPMVY4Nm5hZDM3MjRLNG0xQjA0TDU='
+        })
+      };
+
+      this.http.get('http://www.yesss.com.mm/api.php?_d=products', httpOptions).subscribe(res => {
+        this.products = res['products'];
       })
     }
 
