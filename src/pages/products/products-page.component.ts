@@ -48,4 +48,8 @@ export class ProductsPageComponent {
           'product': product
       });
     }
+
+    public addProduct() {
+      this.navCtrl.push(ProductCRUDPageComponent, {});
+    }
 }
