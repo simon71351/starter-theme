@@ -37,18 +37,7 @@ export class ProductsPageComponent {
       this.appService.setQueryString('products');
       this.appService.getAll().subscribe(res => {
         this.products = res['products'];
-        console.log(res);
       })
-      // const httpOptions = {
-      //   headers: new HttpHeaders({
-      //     'Content-Type':  'application/json',
-      //     'Authorization': 'Basic ' + 'aGFud2luc3RlckBnbWFpbC5jb206M2VnWTRoUzcwODlPMVY4Nm5hZDM3MjRLNG0xQjA0TDU='
-      //   })
-      // };
-
-      // this.http.get('http://www.yesss.com.mm/api.php?_d=products', httpOptions).subscribe(res => {
-      //   this.products = res['products'];
-      // })
     }
 
     public openProduct(product) {

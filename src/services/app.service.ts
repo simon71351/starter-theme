@@ -39,8 +39,8 @@ export class AppService {
     return this.apiURL;
   }
 
-  public getAll(): Observable<any>  {
-    return this.http.get(this.apiURL, this.httpOptions);
+  public getAll(page: number = 1, itemsPerPage: number = 10): Observable<any>  {
+    return this.http.get(this.apiURL + '&' + 'page=' + page + '&' + 'items_per_page=' + itemsPerPage, this.httpOptions);
   }
 
   public save(data: any): Observable<any> {
