@@ -43,6 +43,10 @@ export class AppService {
     return this.http.get(this.apiURL + '&' + 'page=' + page + '&' + 'items_per_page=' + itemsPerPage, this.httpOptions);
   }
 
+  public getByQueryString(queryString: string) {
+    return this.http.get(this.apiURL + '/' + queryString, this.httpOptions);
+  }
+
   public create(data: any): Observable<any> {
     return this.http.post(this.apiURL, data, this.httpOptions);
   }
