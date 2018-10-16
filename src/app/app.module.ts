@@ -11,6 +11,7 @@ import {Keyboard} from '@ionic-native/keyboard';
 import {ActivityService} from "../services/activity-service";
 import {TripService} from "../services/trip-service";
 import {WeatherProvider} from "../services/weather";
+import {AppService} from "../services/app.service";
 
 import {MyApp} from "./app.component";
 
@@ -99,7 +100,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Keyboard,
     ActivityService,
     TripService,
-    WeatherProvider
+    WeatherProvider,
+    AppService
   ]
 })
 
