@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 // import { ProductsPageComponent } from '../index';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { AppService } from '../../services/app.service';
 
 /**
  * Generated class for the Tab1Page page.
@@ -26,7 +27,8 @@ export class ProductCRUDPageComponent {
     public product;
     constructor(public navCtrl: NavController,
       private http: HttpClient,
-      public navParams: NavParams) {
+      public navParams: NavParams,
+      private appService: AppService) {
       if(this.navParams && this.navParams.get('product')) {
         this.product = this.navParams.get('product');
       } else {
@@ -48,19 +50,23 @@ export class ProductCRUDPageComponent {
     }
 
     public saveProduct() {
-      console.log(this.product);
+      // console.log(this.product);
       // this.navCtrl.pop();
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'Authorization': 'Basic ' + 'aGFud2luc3RlckBnbWFpbC5jb206M2VnWTRoUzcwODlPMVY4Nm5hZDM3MjRLNG0xQjA0TDU='
-        })
-      };
 
       const data = JSON.stringify(this.product);
-      this.http.post('http://www.yesss.com.mm/api.php?_d=products', data, httpOptions).subscribe(res => {
-        console.log(res);
-      })
+      // this.http.post('http://www.yesss.com.mm/api.php?_d=products', data, httpOptions).subscribe(res => {
+      //   console.log(res);
+      //   this.product.product_id = 5771;
+      // })
+      if(this.product.product_id) {
+        this.appService.edit(this.product.product_id, data).subscribe(res => {
+          console.log(res);
+        });
+      } else {
+        this.appService.create(data).subscribe(res => {
+          console.log(res);
+        });
+      }
     }
 
     public deleteProduct() {

@@ -43,8 +43,12 @@ export class AppService {
     return this.http.get(this.apiURL + '&' + 'page=' + page + '&' + 'items_per_page=' + itemsPerPage, this.httpOptions);
   }
 
-  public save(data: any): Observable<any> {
+  public create(data: any): Observable<any> {
     return this.http.post(this.apiURL, data, this.httpOptions);
+  }
+
+  public edit(id:any, data: any): Observable<any> {
+    return this.http.put(this.apiURL + '/' + id, data, this.httpOptions);
   }
 
   public delete(id: any): Observable<any> {
