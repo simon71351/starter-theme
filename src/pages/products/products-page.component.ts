@@ -34,7 +34,7 @@ export class ProductsPageComponent {
     }
 
     public fetchProducts() {
-      this.appService.setQueryString('products');
+      this.appService.setModel('products');
       this.appService.getAll().subscribe(res => {
         this.products = res['products'];
       })

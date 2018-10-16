@@ -58,6 +58,7 @@ export class ProductCRUDPageComponent {
       //   console.log(res);
       //   this.product.product_id = 5771;
       // })
+      this.appService.setModel('products');
       if(this.product.product_id) {
         this.appService.edit(this.product.product_id, data).subscribe(res => {
           console.log(res);
@@ -70,6 +71,12 @@ export class ProductCRUDPageComponent {
     }
 
     public deleteProduct() {
+      this.appService.setModel('products');
+      if(this.product.product_id) {
+        this.appService.delete(this.product.product_id).subscribe(res => {
+          console.log(res);
+        });
+      }
     }
 
     public cancel() {

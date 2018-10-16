@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class AppService {
 
   protected baseURL: string = 'http://www.yesss.com.mm/api.php';
-  protected queryString: string;
+  protected model: string;
   private apiURL: string;
   private httpOptions = {
     headers: new HttpHeaders({
@@ -26,9 +26,9 @@ export class AppService {
   ) {
   }
 
-  public setQueryString(queryString: string): void {
-    this.queryString = queryString;
-    this.apiURL = this.baseURL + '?_d=' + this.queryString;
+  public setModel(model: string): void {
+    this.model = model;
+    this.apiURL = this.baseURL + '?_d=' + this.model;
   }
 
   public getBaseURL(): string {
