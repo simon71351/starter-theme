@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Product Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable color="primary" (click)="saveCategory()">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+      <button ion-button tappable color="danger" (click)="deleteCategory()">
+        <ion-icon name="md-trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-item>
+      <ion-label floating>Category Name</ion-label>
+      <ion-input
+          type="text" [(ngModel)]="category.category"></ion-input>
+    </ion-item>
+<!--
+    <ion-item>
+      <ion-label floating>ID Path</ion-label>
+      <ion-input
+          type="text" [(ngModel)]="category.id_path"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label floating>Count</ion-label>
+      <ion-input
+          type="text" [(ngModel)]="category.product_count"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Parent ID</ion-label>
+      <ion-input
+          type="text" [(ngModel)]="category.parent_id"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Status</ion-label>
+      <ion-input
+          type="text" [(ngModel)]="category.status"></ion-input>
+    </ion-item>
+  </div>
+</ion-content>

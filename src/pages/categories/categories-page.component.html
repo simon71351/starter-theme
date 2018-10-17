@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categories</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable color="primary" (click)="addCategory()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Products<br> -->
+
+  <!-- <h3>Products table</h3> -->
+  <div>
+    <!-- <ngx-datatable
+     [headerHeight]="50"
+     [footerHeight]="50"
+     [rowHeight]="50"
+     [rows]="rows"
+     [columnMode]="'force'"
+     [scrollbarH]="true"
+     [limit]="10">
+             <ngx-datatable-column *ngFor="let col of columns" name="col.name" [width]="col.width" [cellClass]="col.cellClass"
+             [resizeable]="true">
+                <ng-template let-column="column" ngx-datatable-header-template >
+                  {{col.name}}
+                </ng-template>
+
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+                  <div>
+                    {{row[col.key]}}
+                  </div>
+                </ng-template>
+             </ngx-datatable-column>
+    </ngx-datatable> -->
+
+    <ion-list *ngFor="let category of categories">
+      <ion-item (click)="openCategory(category)" style="border-bottom: 1px solid #d8d8d8;">
+        <!-- <ion-avatar item-left>
+          <img *ngIf="category.main_pair" [src]="category.main_pair.detailed.image_path">
+        </ion-avatar> -->
+        <h2>{{category.category}}</h2>
+        <p>{{category.id_path}}, {{category.product_count}} products, {{category.status}}</p>
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>

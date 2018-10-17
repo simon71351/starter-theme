@@ -30,7 +30,7 @@ import { Tab1Page } from "../pages/tab1/tab1";
 import { Tab2Page } from "../pages/tab2/tab2";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { ProductsPageComponent, ProductCRUDPageComponent } from '../pages';
+import { CategoriesPageComponent, CategoryCRUDPageComponent, ProductsPageComponent, ProductCRUDPageComponent } from '../pages';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
@@ -58,7 +58,9 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Tab1Page,
     Tab2Page,
     ProductsPageComponent,
-    ProductCRUDPageComponent
+    ProductCRUDPageComponent,
+    CategoriesPageComponent,
+    CategoryCRUDPageComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,9 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Tab1Page,
     Tab2Page,
     ProductsPageComponent,
-    ProductCRUDPageComponent
+    ProductCRUDPageComponent,
+    CategoriesPageComponent,
+    CategoryCRUDPageComponent
   ],
   providers: [
     StatusBar,
