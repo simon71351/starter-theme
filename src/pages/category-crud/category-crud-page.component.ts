@@ -14,16 +14,11 @@ import { AppService } from '../../services/app.service';
  * on Ionic pages and navigation.
  */
 
-export interface Config {
-  products: string;
-}
-
 @Component({
   templateUrl: './category-crud-page.component.html'
 })
 export class CategoryCRUDPageComponent {
 
-    public config: Config;
     public category;
     constructor(public navCtrl: NavController,
       private http: HttpClient,
