@@ -1,18 +1,18 @@
 import { Component, ViewChild } from "@angular/core";
-import { Platform, Nav } from "ionic-angular";
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { Keyboard } from '@ionic-native/keyboard';
+import { Nav, Platform } from "ionic-angular";
+import { CategoriesPageComponent, ProductsPageComponent } from '../pages';
 
 import { HomePage } from "../pages/home/home";
-import { LoginPage } from "../pages/login/login";
+import { Keyboard } from '@ionic-native/keyboard';
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
-import { Tab1Page } from "../pages/tab1/tab1";
-import { Tab2Page } from "../pages/tab2/tab2";
-import { TabsPage } from "../pages/tabs/tabs";
 
-import { CategoriesPageComponent, ProductsPageComponent, ProductCRUDPageComponent } from '../pages';
+import { LoginPage } from "../pages/login/login";
+// import { Tab1Page } from "../pages/tab1/tab1";
+// import { Tab2Page } from "../pages/tab2/tab2";
+// import { TabsPage } from "../pages/tabs/tabs";
+import { OrderPage } from '../pages/order/order';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 export interface PageInterface {
   title: string;
@@ -46,10 +46,9 @@ export class MyApp {
     this.appMenuItems = [
       {title: 'Home', name: 'HomePage',  component: HomePage, icon: 'home'},
       {title: 'Local Weather', name: 'LocalWeatherPage', component: LocalWeatherPage, icon: 'partly-sunny'},
-      { title: 'Tab 1', name: 'TabsPage', component: TabsPage, tabComponent: Tab1Page, index: 0, icon: 'home' },
-      { title: 'Tab 2', name: 'TabsPage', component: TabsPage, tabComponent: Tab2Page, index: 1, icon: 'contacts' },
-      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 2, icon: 'ios-american-football' },
-      { title: 'Categories', name: 'Categories Page', component: CategoriesPageComponent, tabComponent: CategoriesPageComponent, index: 3, icon: 'ios-american-football' }
+      { title: 'Order', name: 'OrderPage', component: OrderPage, icon: 'partly-sunny'},
+      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 0, icon: 'ios-american-football' }
+      { title: 'Categories', name: 'Categories Page', component: CategoriesPageComponent, tabComponent: CategoriesPageComponent, index: 1, icon: 'ios-american-football' }
     ];
   }
 
