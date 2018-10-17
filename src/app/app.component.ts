@@ -49,6 +49,7 @@ export class MyApp {
       // { title: 'Tab 1', name: 'TabsPage', component: TabsPage, tabComponent: Tab1Page, index: 0, icon: 'home' },
       // { title: 'Tab 2', name: 'TabsPage', component: TabsPage, tabComponent: Tab2Page, index: 1, icon: 'contacts' },
       { title: 'Order', name: 'OrderPage', component: OrderPage, icon: 'partly-sunny'},
+      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 2, icon: 'ios-american-football' }
     ];
   }
 
