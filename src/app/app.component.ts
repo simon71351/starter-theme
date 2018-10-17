@@ -47,7 +47,7 @@ export class MyApp {
       {title: 'Home', name: 'HomePage',  component: HomePage, icon: 'home'},
       {title: 'Local Weather', name: 'LocalWeatherPage', component: LocalWeatherPage, icon: 'partly-sunny'},
       { title: 'Order', name: 'OrderPage', component: OrderPage, icon: 'partly-sunny'},
-      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 0, icon: 'ios-american-football' }
+      { title: 'Products', name: 'Products Page', component: ProductsPageComponent, tabComponent: ProductsPageComponent, index: 0, icon: 'ios-american-football' },
       { title: 'Categories', name: 'Categories Page', component: CategoriesPageComponent, tabComponent: CategoriesPageComponent, index: 1, icon: 'ios-american-football' }
     ];
   }
