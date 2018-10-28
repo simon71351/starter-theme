@@ -20,6 +20,8 @@ export class CategoriesPageComponent {
     // public config: Config;
     public columns: any;
     public categories: any;
+    private currentPage = 1;
+    private itemsPerPage = 20;
     constructor(
       public navCtrl: NavController,
       private http: HttpClient,
@@ -31,9 +33,9 @@ export class CategoriesPageComponent {
     }
 
     public fetchCategories() {
-      this.appService.setModel('categories');
-      this.appService.getAll().subscribe(res => {
-        console.log(res);
+      this.appService.setModel('vendors/11/categories');
+      this.appService.getByQueryString('group_by_level=true&page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
+        // console.log(res);
         this.categories = res['categories'];
       })
     }
@@ -46,5 +48,40 @@ export class CategoriesPageComponent {
 
     public addCategory() {
       this.navCtrl.push(CategoryCRUDPageComponent, {});
+    }
+
+    public getStatus(status) {
+      let result;
+      switch(status) {
+        case 'A': result = 'Active'; break;
+        case 'D': result = 'Deleted'; break;
+        case 'H': result = 'Hidden'; break;
+        default: result = 'Active';
+      }
+      return result;
+    }
+
+    public getParent(categoryPath) {
+      const categoryAry = categoryPath.split('/');
+      if (categoryAry.length > 1) {
+        categoryAry.pop();
+        return categoryAry.pop() + ', ';
+      } else {
+        return '';
+      }
+    }
+
+    public doInfinite(infiniteScroll) {
+        this.currentPage++;
+
+        this.appService.setModel('vendors/11/categories');
+        this.appService.getByQueryString('group_by_level=true&page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
+          // console.log(res);
+          this.categories = this.categories.concat(res['categories']);
+          infiniteScroll.complete();
+          if(res['categories'].length == 0) {
+            infiniteScroll.enable(false);
+          }
+        })
     }
 }

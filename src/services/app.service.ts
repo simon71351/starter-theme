@@ -44,7 +44,7 @@ export class AppService {
   }
 
   public getByQueryString(queryString: string) {
-    return this.http.get(this.apiURL + '/' + queryString, this.httpOptions);
+    return this.http.get(this.apiURL + '&' + queryString, this.httpOptions);
   }
 
   public create(data: any): Observable<any> {
