@@ -56,7 +56,13 @@ export class AppService {
   }
 
   public delete(id: any): Observable<any> {
-    return this.http.delete(this.apiURL + '/' + id, this.httpOptions);
+    const deleteHttpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'raw',
+        'Authorization': 'Basic ' + 'aGFud2luc3RlckBnbWFpbC5jb206M2VnWTRoUzcwODlPMVY4Nm5hZDM3MjRLNG0xQjA0TDU='
+      })
+    };
+    return this.http.delete(this.apiURL + '/' + id, deleteHttpOptions);
   }
 
   public get(id: any): Observable<any> {

@@ -73,6 +73,7 @@ export class CategoryCRUDPageComponent {
       if(this.category.category_id) {
         this.appService.delete(this.category.category_id).subscribe(res => {
           console.log(res);
+          this.navCtrl.pop();
         });
       }
     }
