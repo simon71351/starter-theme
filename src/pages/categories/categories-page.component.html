@@ -17,7 +17,7 @@
     <ion-list *ngFor="let category of categories">
       <ion-item (click)="openCategory(category)" style="border-bottom: 1px solid #d8d8d8;">
         <h2>{{category.category}}</h2>
-        <p>{{getParent(category.category_path)}}{{category.product_count}} products, {{getStatus(category.status)}}</p>
+        <span><p>{{getParent(category.category_path)}}{{category.product_count}} products, {{getStatus(category.status)}}</p></span>
       </ion-item>
     </ion-list>
 
