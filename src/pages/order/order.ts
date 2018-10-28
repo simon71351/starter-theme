@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { OrderDetailPage } from '../order-detail/order-detail';
 import { SuperTabs } from 'ionic2-super-tabs';
 
 @IonicPage()

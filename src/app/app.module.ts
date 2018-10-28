@@ -1,5 +1,5 @@
-import {IonicApp, IonicModule} from "ionic-angular";
 import { CategoriesPageComponent, CategoryCRUDPageComponent, ProductCRUDPageComponent, ProductsPageComponent } from '../pages';
+import {IonicApp, IonicModule} from "ionic-angular";
 
 import {ActivityService} from "../services/activity-service";
 import {AppService} from "../services/app.service";
@@ -22,6 +22,7 @@ import {NgModule} from "@angular/core";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {NotificationsPage} from "../pages/notifications/notifications";
 import { OpenOrderPage } from '../pages/open-order/open-order';
+import { OrderDetailPage } from '../pages/order-detail/order-detail';
 import { OrderPage } from '../pages/order/order';
 import {RegisterPage} from "../pages/register/register";
 import {SearchLocationPage} from "../pages/search-location/search-location";
@@ -64,7 +65,8 @@ import {WeatherProvider} from "../services/weather";
     ProductCRUDPageComponent,
     CategoriesPageComponent,
     CategoryCRUDPageComponent,
-    OrderPage
+    OrderPage,
+    OrderDetailPage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ import {WeatherProvider} from "../services/weather";
     ProductsPageComponent,
     ProductCRUDPageComponent,
     CategoriesPageComponent,
-    CategoryCRUDPageComponent
+    CategoryCRUDPageComponent,
+    OrderDetailPage
   ],
   providers: [
     StatusBar,

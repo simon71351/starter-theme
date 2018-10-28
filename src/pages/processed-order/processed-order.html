@@ -14,5 +14,58 @@
 
 
 <ion-content padding>
-  <h1>Processed Order</h1>
+  
+  <ion-card (click)="orderCardClicked(orderObj.orderId)" *ngFor="let orderObj of ordersInfo">
+    <ion-row no-padding>
+      <!-- <ion-col col-4>
+        <img src="../../assets/imgs/sunglasses1.jpg"/>
+      </ion-col> -->
+      <ion-col col-12>
+        <ion-card-content>
+          <ion-card-title>
+            <h2><b>Order Number:</b> &nbsp; # {{ orderObj.orderId }} </h2>
+          </ion-card-title>
+            <ion-row>
+              <ion-col col-4>Time:</ion-col>
+              <ion-col col-8>{{ orderObj.orderDate }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>Total Price:</ion-col>
+              <ion-col col-8>MMK {{ orderObj.totalPrice }}</ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 10px;">
+              <h2><b>Customer Information</b></h2>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>CustomerID:</ion-col>
+              <ion-col col-8>{{ orderObj.customerId }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>Customer Name:</ion-col>
+              <ion-col col-8>{{ orderObj.name }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>Phone:</ion-col>
+              <ion-col col-8>{{ orderObj.phone }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>Change Status:</ion-col>
+              <ion-col col-8>
+                <ion-select >
+                  <ion-option value="processed" selected>Processed</ion-option>
+                  <ion-option value="completed">Completed</ion-option>
+                  <ion-option value="open">Open</ion-option>
+                  <ion-option value="failed">Failed</ion-option>
+                  <ion-option value="declined">Declined</ion-option>
+                  <ion-option value="backordered">Backordered</ion-option>
+                  <ion-option value="cancelled">Cancelled</ion-option>
+                  <ion-option value="awaitingcall">AwaitingCall</ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
 </ion-content>

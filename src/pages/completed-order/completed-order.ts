@@ -1,7 +1,8 @@
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Component } from '@angular/core';
+import { OrderDetailPage } from '../order-detail/order-detail';
 
 /**
  * Generated class for the CompletedOrderPage page.
@@ -17,11 +18,20 @@ import { Component } from '@angular/core';
 })
 export class CompletedOrderPage {
 
+  // @Output() orderSelected = new EventEmitter();
+  public ordersInfo = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CompletedOrderPage');
+  }
+
+  public orderCardClicked() {
+    console.log('OrderID from card:');
+    this.navCtrl.push(OrderDetailPage, { orderID: 123 });
+    // this.orderSelected.emit({});
   }
 
   ngOnInit(): void {
@@ -45,7 +55,7 @@ export class CompletedOrderPage {
 
     // xhr.send(data);
 
-    let url = "http://www.yesss.com.mm/api.php?_d=orders";
+    let url = "http://www.yesss.com.mm/api.php?_d=orders&status=C";
     let headers = new Headers();
     this.createAuthorizationHeader(headers);
 
@@ -55,6 +65,8 @@ export class CompletedOrderPage {
       console.log(JSON.parse(result['_body']));
 
       let products = JSON.parse(result['_body'])['orders'];
+      console.log('products array');
+      console.log(products);
       // Loop through the result and Get Order Details
       // Then request Product Details and show image in App
       // Total 2 more steps
@@ -65,19 +77,31 @@ export class CompletedOrderPage {
 
         // Get Order Details in here
         this.http.get(`http://www.yesss.com.mm/api.php?_d=orders/${product_obj['order_id']}`, { headers }).subscribe(result1 => {
+          const tempOrderObj = {};
           console.log('Order Details');
           console.log(JSON.parse(result1['_body']));
 
+          let parsedOrderObj = JSON.parse(result1['_body']);
           let productsInfoInOrder = JSON.parse(result1['_body'])['product_groups'];
 
           productsInfoInOrder.forEach(productsInfoInOrderObj => {
             for (let key in productsInfoInOrderObj.products) {
               // productsInfoInOrderObj.products[key]['main_pair']['detailed']['http_image_path'];
               
-              if (productsInfoInOrderObj.products[key]['main_pair']['detailed']['http_image_path'].indexOf('http://www.yesss.com.mm') >= 0) {
+              // if (productsInfoInOrderObj.products[key]['main_pair']['detailed']['http_image_path'].indexOf('http://www.yesss.com.mm') >= 0) {
                 console.log('imagePath ********');
+                console.log(parsedOrderObj);
+                tempOrderObj['customerId'] = parsedOrderObj['user_id'];
+                tempOrderObj['name'] = parsedOrderObj['firstname'] + parsedOrderObj['lastname'];
+                tempOrderObj['phone'] = parsedOrderObj['phone'];
+                tempOrderObj['orderId'] = parsedOrderObj['order_id'];
+                tempOrderObj['orderDate'] = new Date(parseInt(parsedOrderObj['timestamp'])).toDateString(); // something wrong with the timestamp (pointing to 1970)
+                tempOrderObj['totalPrice'] = parsedOrderObj['total'];
+                tempOrderObj['orderStatus'] = parsedOrderObj['status'];
+
+                this.ordersInfo.push(tempOrderObj);
                 console.log(productsInfoInOrderObj.products[key]['main_pair']['detailed']['http_image_path']);
-              }
+              // }
             }
             
           });
