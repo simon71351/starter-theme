@@ -3,7 +3,7 @@
       <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Product Detail</ion-title>
+    <ion-title>Category Detail</ion-title>
     <ion-buttons end>
       <button ion-button tappable (click)="saveCategory()">
         <ion-icon name="md-checkmark"></ion-icon>
@@ -22,12 +22,6 @@
       <ion-input
           type="text" [(ngModel)]="category.category"></ion-input>
     </ion-item>
-<!--
-    <ion-item>
-      <ion-label floating>ID Path</ion-label>
-      <ion-input
-          type="text" [(ngModel)]="category.id_path"></ion-input>
-    </ion-item> -->
 
     <ion-item>
       <ion-label floating>Count</ion-label>
@@ -36,15 +30,19 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Parent ID</ion-label>
-      <ion-input
-          type="text" [(ngModel)]="category.parent_id"></ion-input>
+      <ion-label>Parent Category</ion-label>
+      <ion-select [(ngModel)]="category.parent_id">
+        <ion-option *ngFor="let cat of allCategories" [value]="cat.category_id">{{cat.category}}</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Status</ion-label>
-      <ion-input
-          type="text" [(ngModel)]="category.status"></ion-input>
+      <ion-label>Status</ion-label>
+      <ion-select [(ngModel)]="category.status">
+        <ion-option value="A">Active</ion-option>
+        <ion-option value="H">Hidden</ion-option>
+        <ion-option value="D">Deleted</ion-option>
+      </ion-select>
     </ion-item>
   </div>
 </ion-content>

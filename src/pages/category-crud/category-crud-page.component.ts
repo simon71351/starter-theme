@@ -20,21 +20,27 @@ import { AppService } from '../../services/app.service';
 export class CategoryCRUDPageComponent {
 
     public category;
+    public allCategories;
     constructor(public navCtrl: NavController,
       private http: HttpClient,
       public navParams: NavParams,
       private appService: AppService) {
-      if(this.navParams && this.navParams.get('category')) {
-        this.category = this.navParams.get('category');
-      } else {
-        this.category = {
-          'category': '',
-          'status': 'A',
-          'id_path': '100',
-          'count': '100',
-          'company_id': '9'
-        };
-      }
+      this.category = {
+        'category': '',
+        'status': 'A',
+        'parent_id': '0',
+        'count': '100',
+        'company_id': '9'
+      };
+
+      this.appService.setModel('vendors/11/categories');
+      this.appService.getByQueryString('items_per_page=0').subscribe(res => {
+        this.allCategories = res['categories'];
+
+        if(this.navParams && this.navParams.get('category')) {
+          this.category = this.navParams.get('category');
+        }
+      })
     }
 
     ionViewDidLoad(): void {
@@ -62,6 +68,7 @@ export class CategoryCRUDPageComponent {
     }
 
     public deleteCategory() {
+      console.log('Here');
       this.appService.setModel('categories');
       if(this.category.category_id) {
         this.appService.delete(this.category.category_id).subscribe(res => {
@@ -69,4 +76,10 @@ export class CategoryCRUDPageComponent {
         });
       }
     }
+
+    // public compareCat(c1, c2): boolean {
+    //   // console.log(c1);
+    //   // console.log(c2);
+    //   return c1.category_id === c2;
+    // }
 }
