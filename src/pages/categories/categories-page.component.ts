@@ -25,6 +25,7 @@ export class CategoriesPageComponent {
     public categories = [];
     public sortBy = 'N';
     public filterStatus = 'Non';
+    public catInifiniteScroll = undefined;
 
     private itemsPerPage = 20;
     constructor(
@@ -55,6 +56,10 @@ export class CategoriesPageComponent {
                   this.cleanCategories = _.filter(this.cleanCategories, function(cc) { return cc.status == self.filterStatus; });
       }
 
+      if(this.catInifiniteScroll) {
+        this.catInifiniteScroll.enable(true);
+      }
+
       switch(this.sortBy) {
         case 'N': this.cleanCategories = _.sortBy(this.cleanCategories, [function(rc) { return rc.category; }]);
                   break;
@@ -68,7 +73,7 @@ export class CategoriesPageComponent {
       this.fetchCategories();
     }
 
-    public fetchCategories(infiniteScroll?) {
+    public fetchCategories() {
       for(let x=0; x<20; x++) {
         if(this.cleanCategories.length > 0) {
           const category = this.cleanCategories.shift();
@@ -76,16 +81,16 @@ export class CategoriesPageComponent {
           category['parent_category'] = parentcategory? parentcategory.category: undefined;
           this.categories.push(category);
         } else {
-          if(infiniteScroll) {
-            infiniteScroll.enable(false);
+          if(this.catInifiniteScroll) {
+            this.catInifiniteScroll.enable(false);
           }
           break;
         }
       }
       // console.log(this.cleanCategories);
       // console.log(this.rawCategories);
-      if(infiniteScroll) {
-        infiniteScroll.complete();
+      if(this.catInifiniteScroll) {
+        this.catInifiniteScroll.complete();
       }
     }
 
@@ -122,8 +127,9 @@ export class CategoriesPageComponent {
 
     public doInfinite(infiniteScroll) {
       const self = this;
+      this.catInifiniteScroll = infiniteScroll;
       setTimeout(function() {
-        self.fetchCategories(infiniteScroll);
+        self.fetchCategories();
       }, 500);
     }
 
