@@ -10,7 +10,7 @@ import { AppService } from '../../services/app.service';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
+import * as _ from 'lodash'
 
 @Component({
   templateUrl: './categories-page.component.html'
@@ -19,8 +19,9 @@ export class CategoriesPageComponent {
 
     // public config: Config;
     public columns: any;
-    public categories: any;
-    private currentPage = 1;
+    public categories = [];
+    public rawCategories: any;
+
     private itemsPerPage = 20;
     constructor(
       public navCtrl: NavController,
@@ -29,15 +30,31 @@ export class CategoriesPageComponent {
     }
 
     ionViewDidLoad(): void {
-      this.fetchCategories();
+      this.appService.setModel('vendors/11/categories');
+      this.appService.getByQueryString('items_per_page=0').subscribe(res => {
+        // console.log(res);
+        this.rawCategories = res['categories'];
+        this.fetchCategories();
+      })
     }
 
-    public fetchCategories() {
-      this.appService.setModel('vendors/11/categories');
-      this.appService.getByQueryString('group_by_level=true&page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
-        // console.log(res);
-        this.categories = res['categories'];
-      })
+    public fetchCategories(infiniteScroll?) {
+      for(let x=0; x<20; x++) {
+        if(this.rawCategories.length > 0) {
+          const category = this.rawCategories.shift();
+          const parentcategory = _.find(this.rawCategories, function(pc) { return pc.category_id == category.parent_id; });
+          category['parent_category'] = parentcategory? parentcategory.category: undefined;
+          this.categories.push(category);
+        } else {
+          if(infiniteScroll) {
+            infiniteScroll.enable(false);
+          }
+          break;
+        }
+      }
+      if(infiniteScroll) {
+        infiniteScroll.complete();
+      }
     }
 
     public openCategory(category) {
@@ -72,16 +89,9 @@ export class CategoriesPageComponent {
     }
 
     public doInfinite(infiniteScroll) {
-        this.currentPage++;
-
-        this.appService.setModel('vendors/11/categories');
-        this.appService.getByQueryString('group_by_level=true&page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
-          // console.log(res);
-          this.categories = this.categories.concat(res['categories']);
-          infiniteScroll.complete();
-          if(res['categories'].length == 0) {
-            infiniteScroll.enable(false);
-          }
-        })
+      const self = this;
+      setTimeout(function() {
+        self.fetchCategories(infiniteScroll);
+      }, 500);
     }
 }
