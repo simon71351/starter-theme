@@ -19,7 +19,7 @@
         <ion-icon name="md-swap"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" class="hidden-select" #sortSelect>
+    <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" class="hidden" #sortSelect>
       <ion-option value="N">Name</ion-option>
       <ion-option value="C">Product Count</ion-option>
       <ion-option value="S">Status</ion-option>
