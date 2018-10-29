@@ -22,11 +22,14 @@
         <ion-icon name="md-funnel"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" class="hidden" #sortSelect>
-      <ion-option value="N">Name</ion-option>
-      <ion-option value="C">Product Count</ion-option>
-      <ion-option value="S">Status</ion-option>
-    </ion-select>
+    <ion-item class="hidden">
+      <ion-label>Sort By</ion-label>
+      <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" #sortSelect>
+        <ion-option value="N">Name</ion-option>
+        <ion-option value="C">Product Count</ion-option>
+        <ion-option value="S">Status</ion-option>
+      </ion-select>
+    </ion-item>
 
     <ion-list *ngFor="let category of categories">
       <ion-item (click)="openCategory(category)" style="border-bottom: 1px solid #d8d8d8;">
