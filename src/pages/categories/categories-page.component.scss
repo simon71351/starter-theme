@@ -80,3 +80,22 @@
 ion-label {
   overflow: auto;
 }
+
+.hidden-select {
+  display: none;
+}
+
+.option-inline-btn {
+  background-color: white;
+  color: blue;
+  font-size: 150%;
+  transform: rotate(90deg);
+  padding: 0px 8px;
+  margin: 5px 10px;
+  border: 0px solid white;
+  box-shadow: none;
+  &:hover {
+    color: white;
+  }
+  border-radius: 5px;
+}

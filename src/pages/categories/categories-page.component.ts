@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Select } from 'ionic-angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { CategoryCRUDPageComponent } from '../index';
@@ -16,7 +16,7 @@ import * as _ from 'lodash'
   templateUrl: './categories-page.component.html'
 })
 export class CategoriesPageComponent {
-
+    @ViewChild('sortSelect') sortSelect: Select;
     // public config: Config;
     public columns: any;
     public rawCategories = [];
@@ -116,5 +116,9 @@ export class CategoriesPageComponent {
 
     public onSortChange() {
       this.prepareDataAndFetch();
+    }
+
+    public openSortSelect() {
+      this.sortSelect.open();
     }
 }

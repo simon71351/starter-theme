@@ -14,14 +14,16 @@
 
 <ion-content padding>
   <div>
-    <ion-item>
-      <ion-label>Sort By</ion-label>
-      <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()">
-        <ion-option value="N">Name</ion-option>
-        <ion-option value="C">Product Count</ion-option>
-        <ion-option value="S">Status</ion-option>
-      </ion-select>
-    </ion-item>
+    <ion-buttons end>
+      <button ion-button tabblable (click)="openSortSelect()" class="option-inline-btn">
+        <ion-icon name="md-swap"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" class="hidden-select" #sortSelect>
+      <ion-option value="N">Name</ion-option>
+      <ion-option value="C">Product Count</ion-option>
+      <ion-option value="S">Status</ion-option>
+    </ion-select>
 
     <ion-list *ngFor="let category of categories">
       <ion-item (click)="openCategory(category)" style="border-bottom: 1px solid #d8d8d8;">
