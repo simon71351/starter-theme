@@ -23,6 +23,8 @@ export class ProductsPageComponent {
     // public config: Config;
     public columns: any;
     public products: any;
+    private currentPage = 1;
+    private itemsPerPage = 20;
     constructor(
       public navCtrl: NavController,
       private http: HttpClient,
@@ -34,8 +36,9 @@ export class ProductsPageComponent {
     }
 
     public fetchProducts() {
-      this.appService.setModel('products');
-      this.appService.getAll().subscribe(res => {
+      this.appService.setModel('vendors/11/products');
+      this.appService.getByQueryString('page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
+        // console.log(res);
         this.products = res['products'];
       })
     }
@@ -48,5 +51,19 @@ export class ProductsPageComponent {
 
     public addProduct() {
       this.navCtrl.push(ProductCRUDPageComponent, {});
+    }
+
+    public doInfinite(infiniteScroll) {
+        this.currentPage++;
+
+        this.appService.setModel('vendors/11/products');
+        this.appService.getByQueryString('page=' + this.currentPage + '&items_per_page=' + this.itemsPerPage).subscribe(res => {
+          // console.log(res);
+          this.products = this.products.concat(res['products']);
+          infiniteScroll.complete();
+          if(res['products'].length == 0) {
+            infiniteScroll.enable(false);
+          }
+        })
     }
 }

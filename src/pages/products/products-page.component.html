@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
       <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Products</ion-title>
     <ion-buttons end>
-      <button ion-button tappable color="primary" (click)="addProduct()">
+      <button ion-button tappable (click)="addProduct()">
         <ion-icon name="md-add"></ion-icon>
       </button>
     </ion-buttons>
@@ -48,6 +48,10 @@
         <p>{{product.product_code}}, {{product.price}}</p>
       </ion-item>
     </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
   </div>
 </ion-content>
