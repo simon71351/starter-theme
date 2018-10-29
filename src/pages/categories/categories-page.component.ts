@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Select } from 'ionic-angular';
+import { NavController, NavParams, Select, AlertController } from 'ionic-angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { CategoryCRUDPageComponent } from '../index';
 import { AppService } from '../../services/app.service';
+
 /**
  * Generated class for the Tab1Page page.
  *
@@ -23,12 +24,14 @@ export class CategoriesPageComponent {
     public cleanCategories = [];
     public categories = [];
     public sortBy = 'N';
+    public filterStatus = 'Non';
 
     private itemsPerPage = 20;
     constructor(
       public navCtrl: NavController,
       private http: HttpClient,
-      private appService: AppService) {
+      private appService: AppService,
+      private alertCtrl: AlertController) {
     }
 
     ionViewDidLoad(): void {
@@ -42,15 +45,23 @@ export class CategoriesPageComponent {
 
     public prepareDataAndFetch() {
       // this.rawCategories = this.categories.concat(this.rawCategories);
+      const self = this;
       this.categories = [];
       this.cleanCategories = [];
+      switch(this.filterStatus) {
+        case 'Non': this.cleanCategories = this.rawCategories.slice();
+                    break;
+        default : this.cleanCategories = this.rawCategories.slice();
+                  this.cleanCategories = _.filter(this.cleanCategories, function(cc) { return cc.status == self.filterStatus; });
+      }
+
       switch(this.sortBy) {
-        case 'N': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return rc.category; }]);
+        case 'N': this.cleanCategories = _.sortBy(this.cleanCategories, [function(rc) { return rc.category; }]);
                   break;
-        case 'C': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return parseInt(rc.product_count); }]);
+        case 'C': this.cleanCategories = _.sortBy(this.cleanCategories, [function(rc) { return parseInt(rc.product_count); }]);
                   this.cleanCategories = this.cleanCategories.reverse();
                   break;
-        case 'S': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return rc.status; }]);
+        case 'S': this.cleanCategories = _.sortBy(this.cleanCategories, [function(rc) { return rc.status; }]);
                   break;
       }
       // console.log(this.cleanCategories);
@@ -71,6 +82,8 @@ export class CategoriesPageComponent {
           break;
         }
       }
+      // console.log(this.cleanCategories);
+      // console.log(this.rawCategories);
       if(infiniteScroll) {
         infiniteScroll.complete();
       }
@@ -123,6 +136,52 @@ export class CategoriesPageComponent {
     }
 
     public openFilter() {
-
+      const self = this;
+      let alert = this.alertCtrl.create({
+        title: 'Filter By Status',
+        inputs: [
+          {
+            type: 'radio',
+            label: 'None',
+            value: 'Non',
+            checked: self.filterStatus == 'Non'
+          },
+          {
+            type: 'radio',
+            label: 'Active',
+            value: 'A',
+            checked: self.filterStatus == 'A'
+          },
+          {
+            type: 'radio',
+            label: 'Hidden',
+            value: 'H',
+            checked: self.filterStatus == 'H'
+          },
+          {
+            type: 'radio',
+            label: 'Deleted',
+            value: 'D',
+            checked: self.filterStatus == 'D'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: data => {
+              // console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Ok',
+            handler: data => {
+              self.filterStatus = data;
+              this.prepareDataAndFetch();
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 }
