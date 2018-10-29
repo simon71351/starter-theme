@@ -19,8 +19,10 @@ export class CategoriesPageComponent {
 
     // public config: Config;
     public columns: any;
+    public rawCategories = [];
+    public cleanCategories = [];
     public categories = [];
-    public rawCategories: any;
+    public sortBy = 'N';
 
     private itemsPerPage = 20;
     constructor(
@@ -34,14 +36,31 @@ export class CategoriesPageComponent {
       this.appService.getByQueryString('items_per_page=0').subscribe(res => {
         // console.log(res);
         this.rawCategories = res['categories'];
-        this.fetchCategories();
+        this.prepareDataAndFetch();
       })
+    }
+
+    public prepareDataAndFetch() {
+      this.rawCategories = this.categories.concat(this.rawCategories);
+      this.categories = [];
+      this.cleanCategories = [];
+      switch(this.sortBy) {
+        case 'N': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return rc.category; }]);
+                  break;
+        case 'C': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return parseInt(rc.product_count); }]);
+                  this.cleanCategories = this.cleanCategories.reverse();
+                  break;
+        case 'S': this.cleanCategories = _.sortBy(this.rawCategories, [function(rc) { return rc.status; }]);
+                  break;
+      }
+      // console.log(this.cleanCategories);
+      this.fetchCategories();
     }
 
     public fetchCategories(infiniteScroll?) {
       for(let x=0; x<20; x++) {
-        if(this.rawCategories.length > 0) {
-          const category = this.rawCategories.shift();
+        if(this.cleanCategories.length > 0) {
+          const category = this.cleanCategories.shift();
           const parentcategory = _.find(this.rawCategories, function(pc) { return pc.category_id == category.parent_id; });
           category['parent_category'] = parentcategory? parentcategory.category: undefined;
           this.categories.push(category);
@@ -93,5 +112,9 @@ export class CategoriesPageComponent {
       setTimeout(function() {
         self.fetchCategories(infiniteScroll);
       }, 500);
+    }
+
+    public onSortChange() {
+      this.prepareDataAndFetch();
     }
 }

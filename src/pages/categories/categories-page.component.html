@@ -14,6 +14,15 @@
 
 <ion-content padding>
   <div>
+    <ion-item>
+      <ion-label>Sort By</ion-label>
+      <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()">
+        <ion-option value="N">Name</ion-option>
+        <ion-option value="C">Product Count</ion-option>
+        <ion-option value="S">Status</ion-option>
+      </ion-select>
+    </ion-item>
+
     <ion-list *ngFor="let category of categories">
       <ion-item (click)="openCategory(category)" style="border-bottom: 1px solid #d8d8d8;">
         <h2>{{category.category}}</h2>
