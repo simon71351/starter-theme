@@ -41,7 +41,7 @@ export class CategoriesPageComponent {
     }
 
     public prepareDataAndFetch() {
-      this.rawCategories = this.categories.concat(this.rawCategories);
+      // this.rawCategories = this.categories.concat(this.rawCategories);
       this.categories = [];
       this.cleanCategories = [];
       switch(this.sortBy) {
@@ -120,5 +120,9 @@ export class CategoriesPageComponent {
 
     public openSortSelect() {
       this.sortSelect.open();
+    }
+
+    public openFilter() {
+
     }
 }

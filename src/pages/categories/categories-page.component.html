@@ -15,8 +15,11 @@
 <ion-content padding>
   <div>
     <ion-buttons end>
-      <button ion-button tabblable (click)="openSortSelect()" class="option-inline-btn">
+      <button ion-button tabblable (click)="openSortSelect()" class="option-inline-btn rotate-right">
         <ion-icon name="md-swap"></ion-icon>
+      </button>
+      <button ion-button tabblable (click)="openFilter()" class="option-inline-btn">
+        <ion-icon name="md-funnel"></ion-icon>
       </button>
     </ion-buttons>
     <ion-select [(ngModel)]="sortBy" (ionChange)="onSortChange()" class="hidden" #sortSelect>
